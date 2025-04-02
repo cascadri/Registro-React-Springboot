@@ -1,0 +1,45 @@
+.historial-registro-container {
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .registro-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+  }
+  
+  .registro-table th,
+  .registro-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .registro-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .registro-table td {
+    background-color: #fff;
+  }
+  
+  .btn {
+    background-color: #3498db;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #2980b9;
+  }
+  

@@ -1,143 +1,142 @@
 /* General */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f4f8;
-  }
-  
-  .registro-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f4f8;
+}
+
+.registro-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.form-container {
+  display: flex;
+  flex-wrap: wrap; /* Para que los elementos se ajusten bien */
+  width: 100%;
+  max-width: 1200px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-left {
+  flex: 1;
+  position: relative;
+  min-width: 300px;
+}
+
+.image-placeholder {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.form-right {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.input-field {
+  width: 80%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+.btn {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+}
+
+/* Estilos Responsive */
+@media (max-width: 768px) {
   .form-container {
-    display: flex;
-    flex-wrap: wrap; /* Para que los elementos se ajusten bien */
-    width: 100%;
-    max-width: 1200px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-direction: column; /* Hace que los elementos se apilen verticalmente en pantallas pequeñas */
+    align-items: center;
   }
-  
-  .form-left {
-    flex: 1;
-    position: relative;
-    min-width: 300px;
-  }
-  
-  .image-placeholder {
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-  }
-  
+
+  .form-left,
   .form-right {
-    flex: 1;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+    width: 100%; /* Hace que cada sección ocupe el 100% del ancho disponible */
+    flex: none;
   }
-  
+
+  .image-placeholder {
+    height: 200px;
+    /* Ajusta la altura de la imagen en pantallas pequeñas */
+  }
+
   .title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    font-size: 20px; /* Reduce el tamaño de la fuente para pantallas pequeñas */
   }
-  
+
   .subtitle {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-size: 16px; /* Ajusta el tamaño del subtítulo */
   }
-  
+
   .input-field {
-    width: 80%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 10px; /* Reduce el padding */
+    font-size: 14px; /* Reduce el tamaño de la fuente en los campos de entrada */
   }
-  
-  .error-message {
-    color: red;
-    font-size: 12px;
-  }
-  
+
   .btn {
-    background-color: #3498db;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
+    width: 100%; /* Hace que el botón ocupe el 100% del ancho disponible */
+    padding: 12px;
+    font-size: 16px;
   }
-  
-  .btn:hover {
-    background-color: #2980b9;
+}
+
+/* Estilos para dispositivos más pequeños */
+@media (max-width: 480px) {
+  .title {
+    font-size: 18px; /* Ajusta el tamaño de la fuente para pantallas aún más pequeñas */
   }
-  
-  /* Estilos Responsive */
-  @media (max-width: 768px) {
-    .form-container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .form-left,
-    .form-right {
-      width: 100%;
-      flex: none;
-    }
-  
-    .image-placeholder {
-      height: 200px;
-      /*background-image: url('imagen.jpg'); /* Asegúrate de tener una imagen adecuada */
-    }
-  
-    .title {
-      font-size: 20px;
-    }
-  
-    .subtitle {
-      font-size: 16px;
-    }
-  
-    .input-field {
-      padding: 10px;
-      font-size: 14px;
-    }
-  
-    .btn {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-    }
+
+  .input-field {
+    padding: 8px; /* Ajusta el padding */
+    font-size: 12px; /* Reduce aún más el tamaño de la fuente */
   }
-  
-  /* Estilos para dispositivos más pequeños */
-  @media (max-width: 480px) {
-    .title {
-      font-size: 18px;
-    }
-  
-    .input-field {
-      padding: 8px;
-      font-size: 12px;
-    }
-  
-    .btn {
-      padding: 10px;
-      font-size: 14px;
-    }
-  
-    .error-message {
-      font-size: 10px;
-    }
+
+  .btn {
+    padding: 10px; /* Ajusta el tamaño del padding */
+    font-size: 14px; /* Ajusta el tamaño de la fuente */
   }
-  
+
+  .error-message {
+    font-size: 10px; /* Ajusta el tamaño de la fuente del mensaje de error */
+  }
+}

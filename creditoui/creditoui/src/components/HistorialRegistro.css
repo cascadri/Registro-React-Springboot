@@ -1,45 +1,78 @@
 .historial-registro-container {
-    padding: 20px;
-  }
-  
+  padding: 20px;
+}
+
+.title {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.registro-table {
+  width: 100%; /* Hace que la tabla ocupe el 100% del ancho disponible */
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.registro-table th,
+.registro-table td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.registro-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.registro-table td {
+  background-color: #fff;
+}
+
+.btn {
+  background-color: #3498db;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+}
+
+/* Estilos Responsive */
+@media (max-width: 768px) {
   .title {
-    font-size: 32px;
-    text-align: center;
-    margin-bottom: 20px;
+    font-size: 28px; /* Ajusta el tamaño de la fuente para pantallas más pequeñas */
   }
-  
-  .registro-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0 auto;
-  }
-  
+
   .registro-table th,
   .registro-table td {
-    border: 1px solid #ddd;
-    padding: 12px 15px;
-    text-align: left;
+    padding: 8px 10px; /* Reduce el padding para pantallas más pequeñas */
   }
-  
-  .registro-table th {
-    background-color: #f4f4f4;
-    font-weight: bold;
-  }
-  
-  .registro-table td {
-    background-color: #fff;
-  }
-  
+
   .btn {
-    background-color: #3498db;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    width: 100%; /* Hace que el botón ocupe el 100% del ancho disponible */
+    padding: 10px; /* Aumenta el padding en pantallas más pequeñas */
   }
-  
-  .btn:hover {
-    background-color: #2980b9;
+}
+
+/* Estilos para dispositivos más pequeños */
+@media (max-width: 480px) {
+  .title {
+    font-size: 24px; /* Reduce el tamaño de la fuente aún más para pantallas pequeñas */
   }
-  
+
+  .registro-table th,
+  .registro-table td {
+    padding: 6px 8px; /* Ajusta el padding aún más */
+  }
+
+  .btn {
+    padding: 12px; /* Ajusta el tamaño del padding para dispositivos más pequeños */
+    font-size: 14px; /* Reduce el tamaño de la fuente en el botón */
+  }
+}

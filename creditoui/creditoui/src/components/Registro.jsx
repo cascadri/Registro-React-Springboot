@@ -7,7 +7,7 @@ const API_URL = "http://localhost:8080/api/personas";
 
 export default function Registro() {
   const navigate = useNavigate();
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(1); // Estado para controlar el paso del formulario
 
   const [formData, setFormData] = useState({
     nombres: "",
@@ -25,15 +25,16 @@ export default function Registro() {
     ingresosMensuales: "",
   });
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({}); // Estado para manejar los errores de validación
 
   const departamentos = ["San José", "Alajuela", "Cartago", "Heredia", "Guanacaste"];
-  const municipios = ["San José", "Escazú", "Santa Ana", "Alajuela", "Cartago"];
+  const municipios = ["San José", "Alajuela", "Cartago", "Heredia", "Guanacaste"];
   const direcciones = ["Calle 1", "Calle 2", "Calle 3", "Calle 4", "Calle 5"];
   const tipoIdentificaciones = ["Cédula", "Pasaporte"];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    // Actualiza el estado con los datos que el usuario va ingresando en el formulario
     if (step === 1) {
       setFormData({ ...formData, [name]: value });
     } else {
@@ -41,8 +42,9 @@ export default function Registro() {
     }
   };
 
+  // Validación para el paso 1 del formulario
   const validateFormStep1 = () => {
-    const newErrors = {};
+    const newErrors = {}; // Objeto para almacenar los errores de validación
     if (!formData.nombres) newErrors.nombres = "El campo Nombres es obligatorio";
     if (!formData.apellidos) newErrors.apellidos = "El campo Apellidos es obligatorio";
     if (!formData.correoElectronico) newErrors.correoElectronico = "El campo Correo Electrónico es obligatorio";
@@ -50,12 +52,13 @@ export default function Registro() {
     if (!formData.tipoIdentificacion) newErrors.tipoIdentificacion = "Seleccione un Tipo de Identificación";
     if (!formData.numeroIdentificacion) newErrors.numeroIdentificacion = "El campo Número de Identificación es obligatorio";
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    setErrors(newErrors); // Se actualizan los errores en el estado
+    return Object.keys(newErrors).length === 0; // Si no hay errores, retorna true
   };
 
+  // Validación para el paso 2 del formulario
   const validateFormStep2 = () => {
-    const newErrors = {};
+    const newErrors = {}; // Objeto para almacenar los errores del segundo paso
     if (!additionalData.departamento) newErrors.departamento = "Seleccione un Departamento";
     if (!additionalData.municipio) newErrors.municipio = "Seleccione un Municipio";
     if (!additionalData.direccion) newErrors.direccion = "Seleccione una Dirección";
@@ -63,22 +66,22 @@ export default function Registro() {
       newErrors.ingresosMensuales = "Los Ingresos Mensuales son obligatorios y deben ser mayores a 0";
     }
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    setErrors(newErrors); // Se actualizan los errores en el estado
+    return Object.keys(newErrors).length === 0; // Si no hay errores, retorna true
   };
 
   const handleNextStep = () => {
-    if (validateFormStep1()) {
-      setStep(2);
+    if (validateFormStep1()) { // Si la validación del primer paso es exitosa
+      setStep(2); // Cambia al paso 2 del formulario
     }
   };
 
   const handleRegister = async () => {
-    if (validateFormStep2()) {
-      const personaData = { ...formData, ...additionalData };
+    if (validateFormStep2()) { // Si la validación del segundo paso es exitosa
+      const personaData = { ...formData, ...additionalData }; // Combina los datos de ambos pasos
       try {
-        await axios.post(API_URL, personaData);
-        navigate("/historial");
+        await axios.post(API_URL, personaData); // Realiza la solicitud POST para registrar al usuario
+        navigate("/historial"); // Redirige a la página de historial si el registro fue exitoso
       } catch (error) {
         console.error("Error registrando la persona:", error);
         alert("Error al registrar, por favor intente nuevamente");

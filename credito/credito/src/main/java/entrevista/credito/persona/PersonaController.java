@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")  // Permite CORS para todos los orígenes
+@CrossOrigin(origins = "*", allowedHeaders = "*")  // Permite CORS para todos los orígenes, hace el UI corra en el puerto 3000 y el API corre en el 8080
 @RequestMapping("/api/personas")
 public class PersonaController {
     

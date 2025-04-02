@@ -1,18 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package entrevista.credito.persona;
 
+package entrevista.credito.audit.persona;
+
+import entrevista.credito.persona.Persona;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "personas")
-public class Persona {
-    
-    //@Id es la llave primaria de la BD
+@Document(collection = "personas_audit")
+public class PersonaAudit {
+
     @Id
     private String id;
+    private String idPersona;
     private String nombres;
     private String apellidos;
     private String correoElectronico;
@@ -23,11 +21,27 @@ public class Persona {
     private String municipio;
     private String direccion;
     private double ingresosMensuales;
-
-    // Constructor
-    public Persona(String nombres, String apellidos, String correoElectronico, String numeroTelefono,
+    private String accion;  // Acción realizada (Ej. CREAR, ACTUALIZAR, ELIMINAR)
+    
+    // Constructor que recibe una Persona y una acción
+    public PersonaAudit(Persona persona, String accion) {
+        this.idPersona = persona.getId();
+        this.nombres = persona.getNombres();
+        this.apellidos = persona.getApellidos();
+        this.correoElectronico = persona.getCorreoElectronico();
+        this.numeroTelefono = persona.getNumeroTelefono();
+        this.tipoIdentificacion = persona.getTipoIdentificacion();
+        this.numeroIdentificacion = persona.getNumeroIdentificacion();
+        this.departamento = persona.getDepartamento();
+        this.municipio = persona.getMunicipio();
+        this.direccion = persona.getDireccion();
+        this.ingresosMensuales = persona.getIngresosMensuales();
+        this.accion = accion;
+    }
+    
+    public PersonaAudit(String nombres, String apellidos, String correoElectronico, String numeroTelefono,
                    String tipoIdentificacion, String numeroIdentificacion, String departamento, 
-                   String municipio, String direccion, double ingresosMensuales) {
+                   String municipio, String direccion, double ingresosMensuales, String accion) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.correoElectronico = correoElectronico;
@@ -38,9 +52,26 @@ public class Persona {
         this.municipio = municipio;
         this.direccion = direccion;
         this.ingresosMensuales = ingresosMensuales;
+        this.accion = accion;
     }
 
     // Getters y Setters
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getIdPersona() {
+        return idPersona;
+    }
+
+    public void setIdPersona(String idPersona) {
+        this.idPersona = idPersona;
+    }
+
     public String getNombres() {
         return nombres;
     }
@@ -120,13 +151,12 @@ public class Persona {
     public void setIngresosMensuales(double ingresosMensuales) {
         this.ingresosMensuales = ingresosMensuales;
     }
-    
-    
-    public String getId() {
-        return id;
+
+    public String getAccion() {
+        return accion;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setAccion(String accion) {
+        this.accion = accion;
     }
 }

@@ -1,28 +1,28 @@
-/* Modal (Pop-up) */
-.modal-overlay {
+  /* Modal (Pop-up) */
+  .modal-overlay {
     position: fixed; /* Hace que el modal esté fijo respecto a la ventana del navegador */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
-    display: flex; /* Utilizamos flexbox para centrar el contenido */
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex; /* Utiliza flexbox para centrar el contenido */
     justify-content: center; /* Centrado horizontal */
     align-items: center; /* Centrado vertical */
     z-index: 1000; /* Asegura que el modal esté por encima de otros elementos */
   }
-  
+
   .modal-content {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    width: 70%;
-    max-width: 600px;
+    width: 70%; /* Aquí se hace responsivo al usar porcentaje */
+    max-width: 600px; /* Aquí se limita el tamaño máximo para pantallas grandes */
     position: relative;
     overflow-y: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle un poco de profundidad */
   }
-  
+    
   .modal-content h2 {
     margin-bottom: 20px;
     font-size: 24px;
